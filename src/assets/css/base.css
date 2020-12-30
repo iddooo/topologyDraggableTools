@@ -1,0 +1,39 @@
+.flex{
+	display: flex;
+}
+.row{
+	flex-direction: row;
+}
+.column{
+	flex-direction: column;
+}
+.flex-ct-bwt{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.flex-ct{
+	display: flex;
+	align-items: center;
+}
+	
+.flex-ct-ct{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+ .flex-ct-end{
+	 display: flex;
+	 align-items: center;
+	 justify-content: flex-end;
+ }
+ .flex-ct-ard{
+ 	 display: flex;
+ 	 align-items: center;
+ 	 justify-content: space-around;
+ }
+ .elips{
+   overflow: hidden;    
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
+ }

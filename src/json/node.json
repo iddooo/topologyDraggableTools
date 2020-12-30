@@ -1,0 +1,148 @@
+{
+  "type": 0,
+  "rect": {
+    "x": 104.76473691,
+    "y": 386.76599228,
+    "width": 94.3130628,
+    "height": 31.4376876,
+    "center": {
+      "x": 151.92126831,
+      "y": 402.48483608
+    },
+    "ex": 199.07779971,
+    "ey": 418.20367988
+  },
+  "lineWidth": 1,
+  "rotate": 0,
+  "offsetRotate": 0,
+  "globalAlpha": 1,
+  "dash": 0,
+  "strokeStyle": "#222",
+  "fillStyle": "",
+  "font": {
+    "color": "#222",
+    "fontFamily": "\"Hiragino Sans GB\", \"Microsoft YaHei\", \"Helvetica Neue\", Helvetica, Arial",
+    "fontSize": 9.43130628,
+    "lineHeight": 1.5,
+    "fontStyle": "normal",
+    "fontWeight": "normal",
+    "textAlign": "center",
+    "textBaseline": "middle",
+    "background": ""
+  },
+  "animateCycleIndex": 0,
+  "events": [],
+  "eventFns": ["link", "doAnimate", "doFn", "doWindowFn", "", "stopAnimate"],
+  "TID": "176dd0",
+  "id": "64808a7",
+  "name": "rectangle",
+  "tags": [],
+  "lineDashOffset": 0,
+  "text": "随手拍",
+  "textOffsetX": 0,
+  "textOffsetY": 0,
+  "animateType": "",
+  "visible": true,
+  "data": "",
+  "zRotate": 0,
+  "anchors": [{
+    "x": 104.76473691,
+    "y": 402.48483608,
+    "direction": 4
+  }, {
+    "x": 151.92126831,
+    "y": 386.76599228,
+    "direction": 1
+  }, {
+    "x": 199.07779971,
+    "y": 402.48483608,
+    "direction": 2
+  }, {
+    "x": 151.92126831,
+    "y": 418.20367988,
+    "direction": 3
+  }],
+  "rotatedAnchors": [{
+    "x": 104.76473691,
+    "y": 402.48483608,
+    "direction": 4
+  }, {
+    "x": 151.92126831,
+    "y": 386.76599228,
+    "direction": 1
+  }, {
+    "x": 199.07779971,
+    "y": 402.48483608,
+    "direction": 2
+  }, {
+    "x": 151.92126831,
+    "y": 418.20367988,
+    "direction": 3
+  }],
+  "animateDuration": 0,
+  "animateFrames": [],
+  "z": null,
+  "borderRadius": 0,
+  "iconSize": 0,
+  "imageAlign": "center",
+  "bkType": 0,
+  "gradientAngle": 0,
+  "gradientRadius": 0.01,
+  "paddingTop": 0,
+  "paddingBottom": 0,
+  "paddingLeft": 0,
+  "paddingRight": 0,
+  "paddingLeftNum": 0,
+  "paddingRightNum": 0,
+  "paddingTopNum": 0,
+  "paddingBottomNum": 0,
+  "textRect": {
+    "x": 136.20242451,
+    "y": 386.76599228,
+    "width": 62.87537519999999,
+    "height": 31.4376876,
+    "center": {
+      "x": 167.64011211,
+      "y": 402.48483608
+    },
+    "ex": 199.07779970999997,
+    "ey": 418.20367988
+  },
+  "fullTextRect": {
+    "x": 104.76473691,
+    "y": 386.76599228,
+    "width": 94.3130628,
+    "height": 31.4376876,
+    "center": {
+      "x": 151.92126831,
+      "y": 402.48483608
+    },
+    "ex": 199.07779971,
+    "ey": 418.20367988
+  },
+  "iconRect": {
+    "x": 104.76473691,
+    "y": 386.76599228,
+    "width": 31.4376876,
+    "height": 31.4376876,
+    "center": {
+      "x": 120.48358071,
+      "y": 402.48483608
+    },
+    "ex": 136.20242451,
+    "ey": 418.20367988
+  },
+  "fullIconRect": {
+    "x": 104.76473691,
+    "y": 386.76599228,
+    "width": 94.3130628,
+    "height": 31.4376876,
+    "center": {
+      "x": 151.92126831,
+      "y": 402.48483608
+    },
+    "ex": 199.07779971,
+    "ey": 418.20367988
+  },
+  "elementRendered": false
+}

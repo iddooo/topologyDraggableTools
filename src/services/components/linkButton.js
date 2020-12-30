@@ -1,0 +1,245 @@
+export const linkButton = {
+  name: "",
+  image:
+    "data:image/png;base64,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",
+  data: {
+    type: 0,
+    rect: {
+      x: 207,
+      y: 294,
+      width: 106,
+      height: 34,
+      center: { x: 260, y: 311 },
+      ex: 313,
+      ey: 328
+    },
+    lineWidth: 1,
+    rotate: 0,
+    offsetRotate: 0,
+    globalAlpha: 1,
+    dash: 0,
+    strokeStyle: "#222",
+    fillStyle: "",
+    font: {
+      color: "#222",
+      fontFamily:
+        '"Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial',
+      fontSize: 12,
+      lineHeight: 1.5,
+      fontStyle: "normal",
+      fontWeight: "normal",
+      textAlign: "center",
+      textBaseline: "middle"
+    },
+    animateCycleIndex: 0,
+    events: [{ type: 0, action: 0, value: "http://localhost:8080/" }],
+    eventFns: ["link", "doAnimate", "doFn", "doWindowFn", "", "stopAnimate"],
+    TID: "794c93e6",
+    // id: "6c7169c9",
+    name: "image",
+    tags: [],
+    lineDashOffset: 0,
+    textOffsetX: 0,
+    textOffsetY: 0,
+    animateType: "",
+    visible: true,
+    data: "",
+    zRotate: 0,
+    anchors: [
+      { x: 207, y: 311, direction: 4 },
+      { x: 260, y: 294, direction: 1 },
+      { x: 313, y: 311, direction: 2 },
+      { x: 260, y: 328, direction: 3 }
+    ],
+    rotatedAnchors: [
+      { x: 207, y: 311, direction: 4 },
+      { x: 260, y: 294, direction: 1 },
+      { x: 313, y: 311, direction: 2 },
+      { x: 260, y: 328, direction: 3 }
+    ],
+    animateDuration: 0,
+    animateFrames: [],
+    borderRadius: 0,
+    iconSize: 0,
+    image: "/static/images/btn2.png",
+    imgNaturalWidth: 120,
+    imgNaturalHeight: 38,
+    imageAlign: "center",
+    gradientAngle: 0,
+    gradientRadius: 0.01,
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingLeftNum: 0,
+    paddingRightNum: 0,
+    paddingTopNum: 0,
+    paddingBottomNum: 0,
+    textRect: {
+      x: 207,
+      y: 329,
+      width: 106,
+      height: 18,
+      center: { x: 260, y: 338 },
+      ex: 313,
+      ey: 347
+    },
+    fullTextRect: {
+      x: 207,
+      y: 294,
+      width: 106,
+      height: 34,
+      center: { x: 260, y: 311 },
+      ex: 313,
+      ey: 328
+    },
+    iconRect: {
+      x: 207,
+      y: 294,
+      width: 106,
+      height: 30,
+      center: { x: 260, y: 309 },
+      ex: 313,
+      ey: 324
+    },
+    fullIconRect: {
+      x: 207,
+      y: 294,
+      width: 106,
+      height: 34,
+      center: { x: 260, y: 311 },
+      ex: 313,
+      ey: 328
+    },
+    elementRendered: false,
+    children: [
+      {
+        type: 0,
+        rect: {
+          x: 207,
+          y: 294,
+          width: 106,
+          height: 34,
+          center: { x: 260, y: 311 },
+          ex: 313,
+          ey: 328
+        },
+        lineWidth: 1,
+        rotate: 0,
+        offsetRotate: 0,
+        globalAlpha: 1,
+        dash: 0,
+        strokeStyle: "#222",
+        fillStyle: "",
+        font: {
+          color: "#25D9FF",
+          fontFamily:
+            '"Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial',
+          fontSize: 14,
+          lineHeight: 1.5,
+          fontStyle: "normal",
+          fontWeight: "normal",
+          textAlign: "center",
+          textBaseline: "middle",
+          background: ""
+        },
+        animateCycleIndex: 0,
+        events: [],
+        eventFns: [
+          "link",
+          "doAnimate",
+          "doFn",
+          "doWindowFn",
+          "",
+          "stopAnimate"
+        ],
+        TID: "794c93e6",
+        // id: "dfd3d93",
+        name: "text",
+        tags: [],
+        lineDashOffset: 0,
+        text: "菜单管理",
+        textOffsetX: 0,
+        textOffsetY: 0,
+        animateType: "",
+        visible: true,
+        rectInParent: {
+          x: "0%",
+          y: "0%",
+          width: "100%",
+          height: "100%",
+          rotate: 0,
+          rect: {
+            x: 68,
+            y: 100,
+            width: 106,
+            height: 34,
+            center: { x: 121, y: 117 },
+            ex: 174,
+            ey: 134
+          }
+        },
+        data: "",
+        zRotate: 0,
+        anchors: [
+          { x: 207, y: 311, direction: 4 },
+          { x: 260, y: 294, direction: 1 },
+          { x: 313, y: 311, direction: 2 },
+          { x: 260, y: 328, direction: 3 }
+        ],
+        rotatedAnchors: [
+          { x: 207, y: 311, direction: 4 },
+          { x: 260, y: 294, direction: 1 },
+          { x: 313, y: 311, direction: 2 },
+          { x: 260, y: 328, direction: 3 }
+        ],
+        animateDuration: 0,
+        animateFrames: [],
+        borderRadius: 0,
+        iconSize: 0,
+        imageAlign: "center",
+        gradientAngle: 0,
+        gradientRadius: 0.01,
+        paddingTop: 0,
+        paddingBottom: 0,
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingLeftNum: 0,
+        paddingRightNum: 0,
+        paddingTopNum: 0,
+        paddingBottomNum: 0,
+        textRect: {
+          x: 207,
+          y: 319.5,
+          width: 106,
+          height: 8.5,
+          center: { x: 260, y: 323.75 },
+          ex: 313,
+          ey: 328
+        },
+        fullTextRect: {
+          x: 207,
+          y: 294,
+          width: 106,
+          height: 34,
+          center: { x: 260, y: 311 },
+          ex: 313,
+          ey: 328
+        },
+        iconRect: {
+          x: 0,
+          y: 0,
+          width: 0,
+          height: 0,
+          center: { x: 0, y: 0 },
+          ex: 0,
+          ey: 0
+        },
+        elementRendered: false,
+        parentId: "6c7169c9"
+      }
+    ],
+    img: {},
+    lastImage: "/static/images/btn2.png"
+  }
+};

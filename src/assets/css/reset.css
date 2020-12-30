@@ -1,0 +1,135 @@
+/**
+ * @file 样式重置
+ * @author
+ * @time 2019-6-18
+*/
+
+html {
+  width: 100%;
+  height: 100%;
+}
+body{
+  width: 100%;
+  height: 100%;
+}
+
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+input,
+p,
+blockquote,
+th,
+td {
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+  font-family:Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  text-align: left;
+}
+
+select {
+  font-size: 12px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+img {
+  border: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset p {
+  margin: 0;
+  padding: 0008px;
+}
+
+legend {
+  display: none;
+}
+
+address,
+caption,
+em,
+strong,
+th,
+i {
+  font-style: normal;
+  font-weight: 400;
+}
+
+table caption {
+  margin-left: -1px;
+}
+
+hr {
+  border-bottom: 1px solid#FFFFFF;
+  border-top: 1px solid#E4E4E4;
+  border-width: 1px;
+  clear: both;
+  height: 2px;
+  margin: 5px;
+  overflow: hidden;
+}
+
+ol,
+ul {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+@font-face {
+  /* font-family: "ding";
+  src: url("/static/fonts/DINAlternateBold.ttf"); */
+}
+
+.el-upload-list--picture .el-upload-list__item-thumbnail {
+  object-fit: contain!important;
+}
+.el-tabs__content{
+  min-height: 100%;
+}
