@@ -1,14 +1,11 @@
 <template>
-  <div class="page">
+  <div class="topology-edit">
     <div class="tools">
       <Tools
         @dragstart="onDrag"
-        @editComponent="editComponent"
-        @delComponent="delComponent"
-        @delImage="delImage"
-        @addImage="addImage"
-        :userMenusData="userMenusData"
-        :userImagesData="userImagesData">
+        @event="onEvent"
+        :userMenus="userMenus"
+        :userImages="userImages">
         <div class="operate">
             <el-button @click="saveComponent" size="small" type="primary" icon="el-icon-upload2">保存组件</el-button>
         </div>
@@ -27,10 +24,11 @@
         v-if="canvas && !props.node"
         :canvas="canvas"
         :page="pageData"
-        :userImagesData="userImagesData"
+        :userImages="userImages"
         @change="onRender">
         <div class="operate">
-            <el-button @click="save" size="small" type="primary" icon="el-icon-document-checked">保存页面</el-button>
+            <el-button v-if="id" @click="edit" size="small" type="primary" icon="el-icon-document-checked">编辑页面</el-button>
+            <el-button v-else @click="save" size="small" type="primary" icon="el-icon-document-checked">新增页面</el-button>
             <el-button @click="preview" type="primary" size="small" icon="el-icon-view">预览</el-button>
         </div>
       </PageProps>
@@ -38,7 +36,7 @@
       <CanvasProps
         v-if="props.node"
         :node="props.node"
-        :userImagesData="userImagesData"
+        :userImages="userImages"
         @change="onUpdateProps">
       </CanvasProps>
     </div>
@@ -88,13 +86,15 @@ import {
   delComponent,
   componentList,
   addPage,
+  editPage,
+  getPage,
   uploadImg,
   delImg,
   getImgList
 } from "~/api/zutai";
 
 // 测试数据
-import json from "~/json/test.json";
+import json from "~/json/node.json";
 
 const canvasOptions = {
   rotateCursor: "/img/rotate.cur"
@@ -111,9 +111,9 @@ export default {
     data() {
         return {
             // 工具
-            userMenusData: [],
+            userMenus: [],
             uploadOptions: {},
-            userImagesData: [],
+            userImages: [],
             // 右键操作面板
             contextmenu: {
                 left: null,
@@ -151,8 +151,18 @@ export default {
         canvas = new Topology("topology-canvas", canvasOptions);
         this.canvas = canvas;
         console.log('初始化canvas',this.canvas)
+        // canvas.open(json.data)
+        // 编辑页面
+        if(this.id){
+            getPage(this.id).then(res=>{
+                console.log('res.data :>> ', res.data);
+                let pageJson = JSON.parse(res.data.data)
+                canvas.open(pageJson);
+                this.pageData = res.data
+            })
+        }
 
-
+        // 预览返回
         if (window.topologyData) {
             window.topologyData.locked = 0;
             canvas.open(window.topologyData);
@@ -164,6 +174,10 @@ export default {
         console.log('mounted canvas',this.canvas)
     },
     methods: {
+        onEvent(e){
+            console.log('e :>> ', e);
+            this[e.name](e.data)
+        },
         // 图片 ========start
         // 获取图片列表
         async getImageList() {
@@ -179,7 +193,7 @@ export default {
                 });
                 return a;
             }, []);
-            this.userImagesData = result;
+            this.userImages = result;
         },
         // 添加图片
         addImage(data) {
@@ -210,7 +224,6 @@ export default {
         },
         onRender() {
             // 重绘画布
-            console.log(this.canvas)
             canvas.render();
         },
         onContextMenu(event) {
@@ -356,24 +369,34 @@ export default {
             });
         },
         // 保存页面
+        edit(){
+            let page = {
+                id:this.pageData.id,
+                deviceId:this.pageData.deviceId,
+                name:this.pageData.name,
+                data:JSON.stringify(this.canvas.data)
+            }
+            editPage(page).then(res=>{
+                this.$message.success('编辑成功')
+                this.$router.replace({
+                    path:'/zesion'
+                })
+            })
+        },
         save() {
             console.log(this.canvas,this.pageData)
             let page = {
-                ...this.pageData,
+                deviceId:this.pageData.deviceId,
+                name:this.pageData.name,
                 data:JSON.stringify(this.canvas.data)
             }
             addPage(page).then(res=>{
                 
             })
+            
         },
         // 组件========start
-        addComponent(){
-            this.type = 'add'
-            this.dialogFormVisible = true;
-            this.name = undefined
-        },
         editComponent(data) {
-            this.type = 'edit'
             this.editData = data;
             this.name = data.name
             this.canvas.open({pens:[data.data]})
@@ -428,13 +451,14 @@ export default {
             };
             addComponent(componentData).then(res => {
                 this.getComponentList();
+                this.canvas.open({pens:[]})
                 this.dialogFormVisible = false
             });
         },
         // 组件列表
         getComponentList() {
             componentList().then(res => {
-                this.userMenusData = res.data.map(v => {
+                this.userMenus = res.data.map(v => {
                     v.data = JSON.parse(v.data)
                     return v
                 });;
@@ -446,14 +470,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page {
+.topology-edit {
   display: flex;
   width: 100%;
   height: 100%;
   .tools {
     width: 260px;
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 
   .full {
@@ -475,16 +499,12 @@ export default {
   .props {
     width: 300px;
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 
   .context-menu {
     position: fixed;
     z-index: 10;
   }
-}
-
-.operate{
-    padding: 8px 0 10px 10px;
 }
 </style>

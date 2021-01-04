@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="user-menus">
         <el-collapse v-model="activeNames">
             <el-collapse-item title="默认组件" name="1">
                 <div class="coms">
-                    <div v-for="(btn, i) in defalutUMenusData" 
+                    <div v-for="(btn, i) in defalutUserMenus" 
                         :key="i" 
                         class="com"
                         :title="btn.name" 
@@ -14,9 +14,9 @@
                     </div>
                 </div>
             </el-collapse-item>
-            <el-collapse-item title="我的组件" name="1">
+            <el-collapse-item title="我的组件" name="2">
                 <div class="coms">
-                    <div v-for="(btn, i) in data" 
+                    <div v-for="(btn, i) in $attrs.userMenus" 
                         :key="i" 
                         class="com"
                         :title="btn.name" 
@@ -47,19 +47,18 @@
 </template>
 
 <script>
-import { userMenus as defalutUMenusData } from "~/services/userMenus.js";
+import { userMenus as defalutUserMenus } from "~/services/userMenus.js";
 
 export default {
     name:'',
     components: {},
-    props:['data'],
     data() {
       return {
         editIconColor:'grey',
         deleteIconColor:'grey',
         activeComIndex:undefined,
         activeNames:['1','2'],
-        defalutUMenusData,
+        defalutUserMenus,
         activeColor:'#25D9FF'
       };
     },
@@ -70,10 +69,10 @@ export default {
             this.$emit('dragstart',event, node)
         },
         edit(data){
-            this.$emit('edit',data)
+            this.$emit('event',{name:'editComponent',data})
         },
         del(data){
-            this.$emit('del',data)
+            this.$emit('event',{name:'delComponent',data})
         }
     },
     created() {
@@ -86,17 +85,19 @@ export default {
 </script>
 <style lang='scss' scoped>
 .coms{
-    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .com{
-    display: inline-block;
-    width: 50%;
+    width: 40%;
     height: 40px;
-    padding-left: 10px;
-    margin: 8px auto 4px;
-    box-sizing: border-box;
     position: relative;
+    margin: 10px 0;
+    border-radius: 5px;
     cursor: pointer;
+        // box-shadow: 1px 1px 16px 3px rgba(0,0,0,0.1);
+    
     img{
         width: 64px;
         height: 40px;

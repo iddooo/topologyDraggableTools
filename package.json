@@ -22,6 +22,7 @@
     "node-sass": "^4.12.0",
     "sass": "^1.21.0",
     "sass-loader": "^7.1.0",
+    "screenfull": "^5.1.0",
     "uuid": "^8.3.2",
     "vcolorpicker": "^1.0.3",
     "vue": "^2.5.2",

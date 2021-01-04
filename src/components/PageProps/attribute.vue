@@ -1,6 +1,6 @@
 <template>
-  <div class=''>
-      <el-form ref="form" label-width="80px" :inline="false" size="mini">
+  <div class='attribute'>
+      <el-form ref="form" size="mini">
           <el-form-item label="页面名称">
               <el-input v-model="$attrs.page.name"></el-input>
           </el-form-item>
@@ -10,7 +10,7 @@
           <el-form-item label="背景颜色">
                 <div class="flex-ct">
                     <colorPicker v-model="color"  @change="headleChangeColor"/>
-                    <div class="color-ipt">
+                    <div class="ml-20">
                         <el-input size="mini" v-model="$attrs.canvas.data.bkColor" @change="onChange"></el-input>
                     </div>
                 </div>
@@ -26,8 +26,8 @@
           </el-form-item>
       </el-form>
       
-      <div>
-          <userImages @click="choosebkImage"/>
+      <div class='image-box'>
+            <userImages @click="choosebkImage"/>
       </div>
   </div>
 </template>
@@ -93,7 +93,7 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-.color-ipt{
+.ml-20{
     margin-left: 20px;
 }
 .m-colorPicker{

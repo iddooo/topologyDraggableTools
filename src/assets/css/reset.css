@@ -130,6 +130,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 .el-upload-list--picture .el-upload-list__item-thumbnail {
   object-fit: contain!important;
 }
-.el-tabs__content{
-  min-height: 100%;
+.el-tabs--border-card{
+    min-height: 100%;
+    box-sizing: border-box;
+}
+.operate{
+    margin-bottom: 20px;
+}
+.topology-edit .el-collapse-item__header{
+    font-weight: 600;
 }

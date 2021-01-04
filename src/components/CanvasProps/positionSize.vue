@@ -1,5 +1,5 @@
 <template>
-  <div class=''>
+  <div class='position-size'>
     <el-row>
       <el-col :span="12">X（px）</el-col>
       <el-col :span="12">Y（px）</el-col>

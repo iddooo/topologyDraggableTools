@@ -40,7 +40,6 @@ export default {
                 path: "/edit",
                 query:{id:data.id}
             });
-            window.topologyData = JSON.parse(data.data)
         },
         preview(data){
             window.topologyData = JSON.parse(data.data)

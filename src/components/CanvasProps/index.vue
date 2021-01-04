@@ -4,7 +4,7 @@
             <el-tab-pane label="外观">
                 <el-collapse v-model="activeNames">
                     <el-collapse-item title="位置和大小" name="1">
-                        <positionAndSize v-bind="$attrs" v-on="$listeners" />
+                        <positionSize v-bind="$attrs" v-on="$listeners" />
                     </el-collapse-item>
                     <el-collapse-item title="文字" name="2"
                         v-show="textNodeList.length>0">
@@ -17,6 +17,7 @@
                     <el-collapse-item title="图片" name="3"
                         v-show="imageNodeList.length>0">
                         <imageProps
+                            v-bind="$attrs"
                             v-for="(n,i) in imageNodeList"
                             :key="i"
                             :node="n"
@@ -46,7 +47,7 @@
 </template>
 
 <script>
-import positionAndSize from './positionAndSize'
+import positionSize from './positionSize'
 import fontStyle from './fontStyle'
 import event from './event'
 import componetData from './componetData'
@@ -63,7 +64,7 @@ const eModel = {
 export default {
     name:'',
     components: {
-      positionAndSize,
+      positionSize,
       fontStyle,
       event,
       componetData,
@@ -127,9 +128,6 @@ export default {
 .canvas-props{
     width: 100%;
     height: 100%;
-    .el-tabs{
-      min-height: 100%;
-    }
 }
 .event{
   .e-title{

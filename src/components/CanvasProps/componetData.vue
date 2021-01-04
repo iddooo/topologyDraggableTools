@@ -1,5 +1,5 @@
 <template>
-  <div class=''>数据</div>
+  <div class='component-data'>数据</div>
 </template>
 
 <script>

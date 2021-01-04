@@ -23,16 +23,16 @@ export const zesionRouter = [
             path: "edit",
             name: "Edit",
             component: () => import("~/pages/topologyEdit.vue"),
-            meta: { title: "编辑", icon: "" }
-          },
-          {
-            path: "preview",
-            name: "Preview",
-            hidden: true,
-            component: () => import("~/pages/preview.vue"),
-            meta: { title: "预览", icon: "" }
+            meta: { title: "我的工具", icon: "" }
           }
     ]
+  },
+  {
+    path: "/preview",
+    name: "Preview",
+    hidden: true,
+    component: () => import("~/pages/preview.vue"),
+    meta: { title: "预览", icon: "" }
   }
 ];
 

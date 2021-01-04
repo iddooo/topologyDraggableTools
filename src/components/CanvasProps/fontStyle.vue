@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="font-style">
     <el-row>
       <el-col :span="12">字体</el-col>
       <el-col :span="12">大小</el-col>

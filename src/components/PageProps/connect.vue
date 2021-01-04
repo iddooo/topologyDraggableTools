@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="connect">
         <div class="content">
             <div class="title">Websocket</div>
             <el-input size="mini" v-model="websocket" @change="opWebsocket"></el-input>

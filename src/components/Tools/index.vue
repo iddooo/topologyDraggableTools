@@ -4,17 +4,13 @@
             <!-- 系统组件 -->
             <!-- <el-tab-pane label="系统组件">
                 <defalutMenus 
-                    :data="defalutMenusData"
+                    :defalutMenusData="defalutMenusData"
                     @dragstart="onDrag" />
             </el-tab-pane> -->
             <el-tab-pane label="我的组件">
                 <div>
                     <slot/>
-                    <userMenus
-                        :data="userMenusData"
-                        @dragstart="onDrag"
-                        @edit="editComponent"
-                        @del="delComponent" />
+                    <userMenus v-bind="$attrs" v-on="$listeners" />
                 </div>
             </el-tab-pane>
             <el-tab-pane label="我的图片">
@@ -28,13 +24,10 @@
                         :name="uploadOptions.name"
                         :on-success="handleSuccess"
                         :before-upload="handleBeforeUpload">
-                            <el-button size="small" type="primary" icon="el-icon-picture">点击上传</el-button>
+                            <el-button size="small" type="primary" icon="el-icon-picture">上传图片</el-button>
                         </el-upload>
                     <!-- 用户上传背景图 -->
-                    <userImages
-                        :data="userImagesData"
-                        @dragstart="onDrag"
-                        @delImage="delImage" />
+                    <userImages v-bind="$attrs" v-on="$listeners" />
                 </div>
             </el-tab-pane>
         </el-tabs>
@@ -60,20 +53,6 @@ export default {
             required:false,
             default:()=>{
                 return defalutMenusData
-            }
-        },
-        userMenusData:{
-            type:Array,
-            required:false,
-            default:()=>{
-                return []
-            }
-        },
-        userImagesData:{
-            type:Array,
-            required:false,
-            default:()=>{
-                return []
             }
         },
         uploadOptions:{
@@ -112,28 +91,8 @@ export default {
         onDrag(event, node) {
             this.$emit('dragstart',event, node)
         },
-        delImage(data){
-            console.log('删除图片data',data)
-            this.$emit('delImage',data)
-
-        },
-        editComponent(data){
-            console.log('编辑组件data',data)
-            this.$emit('editComponent',data)
-        },
-        delComponent(data){
-            this.$emit('delComponent',data)
-        },
-        addComponent(){
-            this.$emit('addComponent')
-        },
-        saveComponent(){
-            this.$emit('saveComponent')
-        },
         addImage(data){
-            console.log('图片上传成功',data)
-            this.$emit('addImage',data)
-			
+            this.$emit('event',{name:'addImage',data})
         },
         handleBeforeUpload(file){
             // 文件上传之前 获取文件的width height
@@ -179,14 +138,6 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-
-.operate{
-    padding: 8px;
-    .el-button{
-        // display: block;
-        // width: 100%;
-    }
-}
 .el-upload{
     display: block!important;
 }
@@ -194,8 +145,5 @@ export default {
 .tools-box {
     width: 100%;
     height: 100%;
-    .el-tabs{
-        height: 100%;
-    }
   }
 </style>

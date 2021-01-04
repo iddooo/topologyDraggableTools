@@ -19,13 +19,27 @@ export const fns = {
         };
         console.log('red',pen, params)
 
-        pen.children.forEach(c => {
-            if (c.name == "image") {
-              c.image = c.image == stateOff.image ? stateOn.image : stateOff.image
-              let pens = [pen];
-              window.topology.updateProps(false, pens); 
-            }
-          });
+        // test
+        if(pen.name == 'image'){
+            pen.image = pen.image == stateOff.image ? stateOn.image : stateOff.image
+        }
+        if(pen.children){
+            pen.children.forEach(n => {
+                if(n.name=='image'){
+                    n.image = n.image == stateOff.image ? stateOn.image : stateOff.image
+                }
+            });
+        }
+        let pens = [pen];
+        window.topology.updateProps(false, pens); 
+
+        // pen.children.forEach(c => {
+        //     if (c.name == "image") {
+        //       c.image = c.image == stateOff.image ? stateOn.image : stateOff.image
+        //       let pens = [pen];
+        //       window.topology.updateProps(false, pens); 
+        //     }
+        //   });
     },
     radioGreen(pen, params){
     // 根据状态改变背景颜色

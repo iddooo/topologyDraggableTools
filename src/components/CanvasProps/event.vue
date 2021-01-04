@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="event">
     <el-form label-width="80px" :model="event">
       <el-form-item label="事件类型">
         <el-select v-model="event.type" @change="onTypeChange">

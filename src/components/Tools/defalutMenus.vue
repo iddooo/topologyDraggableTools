@@ -1,6 +1,6 @@
 <template>
     <div class="default-box">
-        <div v-for="(item, index) in data"
+        <div v-for="(item, index) in $attrs.defalutMenusData"
             :key="index">
             <div class="title">{{ item.group }}</div>
             <div class="buttons">
@@ -20,7 +20,6 @@
 
 export default {
     name:'',
-    props:['data'],
     components: {},
     data() {
       return {
@@ -54,7 +53,7 @@ export default {
       border-bottom: 1px solid #ddd;
     }
 .buttons {
-    padding: 0.1rem 0;
+    padding: 10px 0;
     img{
         width: 50px;
         height: 50px;
@@ -64,14 +63,14 @@ export default {
     display: inline-block;
     color: #314659;
     line-height: 1;
-    width: 0.4rem;
-    height: 0.4rem;
+    width: 40px;
+    height: 40px;
     text-align: center;
     text-decoration: none !important;
     cursor: pointer;
 
     .iconfont {
-        font-size: 0.24rem;
+        font-size: 24px;
     }
 
     &:hover {

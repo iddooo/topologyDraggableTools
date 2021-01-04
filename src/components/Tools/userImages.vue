@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="user-image">
         <el-collapse v-model="activeNames">
             <el-collapse-item title="本地图片" name="1">
                 <div :class="['u-image',{'active':activeClickIndex===btn.id}]"
@@ -13,7 +13,7 @@
             </el-collapse-item>
             <el-collapse-item title="网络图片" name="2">
                 <div :class="['u-image',{'active':activeClickIndex===btn.id}]"
-                    v-for="(btn,i) in data"
+                    v-for="(btn,i) in $attrs.userImages"
                     :key="btn.id"
                     @click="onClick(btn)"
                     @mouseenter="onMouseenter(i)"
@@ -40,7 +40,7 @@ import { userImages as defalutUserImagesData} from "~/services/userImages.js";
 export default {
     name:'',
     components: {},
-    props:['data'],
+    // props:['data'],
     data() {
       return {
         iconColor:'grey',
@@ -58,7 +58,7 @@ export default {
             this.$emit('dragstart',event, node)
         },
         del(data){
-            this.$emit('delImage',data)
+            this.$emit('event',{name:'delImage',data})
         },
         onClick(data){
             this.activeClickIndex = data.id
@@ -80,12 +80,12 @@ export default {
 </script>
 <style lang='scss' scoped>
 .u-image{
-    margin: 20px 5px 0;
+    display: inline-block;
+    margin: 10px 10px;
     height: 50px;
     width: 50px;
     position: relative;
     cursor: pointer;
-    display: inline-block;
     img{
         height: 100%;
         width: 100%;
