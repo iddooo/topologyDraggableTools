@@ -108,7 +108,8 @@ export default {
       valueRenderView: [
         { label: "状态监测(红)", value: "radioRed" },
         { label: "状态监测(绿)", value: "radioGreen" },
-        { label: "电机状态", value: "buttonState" }
+        { label: "电机状态(启动)", value: "buttonStateON" },
+        { label: "电机状态(停止)", value: "buttonStateOFF" }
       ],
       valueEditAttr: [{ label: "修改属性", value: "editAttr" }],
       valueControl: [],

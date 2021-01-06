@@ -25,7 +25,7 @@ export default {
   },
   mounted() {
       let data = window.topologyData
-    //   data.locked = 1;
+      data.locked = 1;
       canvas = new Topology('topology-canvas', {});
       canvas.open(data);
       console.log("预览中的画布 :>> ", canvas);

@@ -40,6 +40,7 @@
             </el-tab-pane>
 
             <el-tab-pane label="数据">
+                <div>{{$attrs.node.id}}</div>
                 <componetData v-bind="$attrs" v-on="$listeners"/>
             </el-tab-pane>
         </el-tabs>

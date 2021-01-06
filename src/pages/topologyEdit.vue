@@ -110,6 +110,7 @@ export default {
     },
     data() {
         return {
+            componentNode:{},
             // 工具
             userMenus: [],
             uploadOptions: {},
@@ -156,6 +157,7 @@ export default {
         if(this.id){
             getPage(this.id).then(res=>{
                 console.log('res.data :>> ', res.data);
+                console.log('res.data.data :>> ', res.data.data);
                 let pageJson = JSON.parse(res.data.data)
                 canvas.open(pageJson);
                 this.pageData = res.data
@@ -416,7 +418,15 @@ export default {
                 this.$message.error("画布为空");
                 return;
             }
-
+            // console.log('window.topology.toComponent() :>> ', window.topology.toComponent());
+            let componentNode = window.topology.toComponent()
+            this.componentNode = componentNode
+            delete componentNode.id
+            if(componentNode.children){
+                componentNode.children.forEach(n => {
+                     delete n.id
+                });
+            }
             // 新增组件
             if(!this.name){
                 this.type=='add'
@@ -425,7 +435,7 @@ export default {
             }
 
             // 编辑组件
-            let jsonData = JSON.stringify(window.topology.toComponent())
+            let jsonData = JSON.stringify(this.componentNode)
             let componentData = {
                 id:this.editData.id,
                 name:this.editData.name,
@@ -434,6 +444,9 @@ export default {
             }
             editComponent(componentData).then(res => {
                 this.getComponentList();
+                this.$message.success('修改成功')
+                this.name = undefined
+                this.canvas.open({pens:[]})
             });
         },
         cfmSaveComponent() {
@@ -482,7 +495,7 @@ export default {
 
   .full {
     flex: 1;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     background-color: #020a21;

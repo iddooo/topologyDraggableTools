@@ -9,6 +9,10 @@ axios.interceptors.request.use(
         config.headers = {
             'Content-Type': 'application/json'
         }
+        // console.log('config :>> ', config);
+        if(config.url=="/zutai/write"){
+            config.baseURL = 'http://192.168.0.117:8001'
+        }
         return config
     },
     error => {

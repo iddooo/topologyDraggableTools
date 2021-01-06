@@ -125,6 +125,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 @font-face {
   /* font-family: "ding";
   src: url("/static/fonts/DINAlternateBold.ttf"); */
+font-family: 'Source Han Sans CN';
+  src: url("/static/fonts/SourceHanSansCN-Regular.ttf");
+}
+@font-face{
+    font-family: 'DS-Digital';
+    src: url('/static/fonts/DS-DIGI-1.ttf');
 }
 
 .el-upload-list--picture .el-upload-list__item-thumbnail {

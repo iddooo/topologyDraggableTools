@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-      <div class="sidebar">
+      <div :class="['sidebar',{'isCollapse':!sidebar.opened}]">
+          <div class="fold">
+                <i @click="fold" class="el-icon-s-fold"></i>
+            </div>
           <sidebar/>
       </div>
       <div class="main">
@@ -11,6 +14,7 @@
 
 <script>
 import sidebar from './siderbar'
+import { mapGetters } from 'vuex'
 
 export default {
   name: "",
@@ -18,11 +22,18 @@ export default {
       sidebar
   },
   data() {
-    return {};
+    return {
+    };
   },
-  computed: {},
+  computed: {
+    ...mapGetters(['sidebar'])
+    },
   watch: {},
-  methods: {},
+  methods: {
+      fold(){
+          this.$store.dispatch('toggleSideBar')
+        }
+  },
   created() {},
   mounted() {}
 };
@@ -35,10 +46,17 @@ export default {
     .sidebar{
         width: 200px;
         height: 100%;
+        &.isCollapse{
+            width: 54px;
+        }
     }
     .main{
         flex: 1;
         height: 100%;
     }
+}
+.fold{
+    font-size: 20px;
+    padding-left: 20px;
 }
 </style>

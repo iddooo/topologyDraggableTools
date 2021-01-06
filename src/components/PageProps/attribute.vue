@@ -20,7 +20,7 @@
                     <i class="el-icon-document-add" @click="addbkImage"></i>
                 </div>
                 <div v-show="$attrs.canvas.data.bkImage">
-                    <img :src="$attrs.canvas.data.bkImage">
+                    <img class="img" :src="$attrs.canvas.data.bkImage">
                     <i class="el-icon-delete" @click="delbkImage"></i>
                 </div>
           </el-form-item>
@@ -81,7 +81,10 @@ export default {
 
         },
         delbkImage(){
-
+            // console.log('del');
+            this.$attrs.canvas.clearBkImg()
+            this.$attrs.canvas.data.bkImage = undefined
+            this.$emit('change', this.$attrs.canvas);
         }
     },
     created() {
@@ -98,5 +101,9 @@ export default {
 }
 .m-colorPicker{
     border: 1px solid#DCDFE6;
+}
+.img{
+    width: 100%;
+    object-fit: contain;
 }
 </style>
