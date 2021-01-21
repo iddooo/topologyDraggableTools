@@ -8,7 +8,7 @@ html {
   width: 100%;
   height: 100%;
 }
-body{
+body {
   width: 100%;
   height: 100%;
 }
@@ -45,7 +45,7 @@ h5 {
 
 body {
   background-color: #ffffff;
-  font-family:Helvetica,Arial,sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   text-align: left;
 }
@@ -117,32 +117,100 @@ a {
   text-decoration: none;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
 }
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
 @font-face {
   /* font-family: "ding";
   src: url("/static/fonts/DINAlternateBold.ttf"); */
-font-family: 'Source Han Sans CN';
+  font-family: "Source Han Sans CN";
   src: url("/static/fonts/SourceHanSansCN-Regular.ttf");
 }
-@font-face{
-    font-family: 'DS-Digital';
-    src: url('/static/fonts/DS-DIGI-1.ttf');
+@font-face {
+  font-family: "DS-Digital";
+  src: url("/static/fonts/DS-DIGI-1.ttf");
 }
 
 .el-upload-list--picture .el-upload-list__item-thumbnail {
-  object-fit: contain!important;
+  object-fit: contain !important;
 }
-.el-tabs--border-card{
-    min-height: 100%;
-    box-sizing: border-box;
+.el-tabs--border-card {
+  min-height: 100%;
+  box-sizing: border-box;
 }
-.operate{
-    margin-bottom: 20px;
+.operate {
+  margin-bottom: 20px;
 }
-.topology-edit .el-collapse-item__header{
-    font-weight: 600;
+.topology-edit .el-collapse-item__header {
+  font-weight: 600;
+}
+/*告警= 表格样式 start*/
+.table-ctr .el-table {
+  background-color: transparent;
+}
+.table-ctr .el-table::before {
+  background-color: #1f81b3;
+}
+
+.table-ctr .el-table th,
+.table-ctr .el-table tr {
+  background-color: transparent;
+}
+
+.table-ctr .header-row {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Source Han Sans CN";
+  font-weight: 500;
+  background-image: url("/static/images/th-bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+.table-ctr .header-cell {
+  border-bottom: 0 !important;
+}
+.table-ctr .tb-row {
+  color: #fff;
+  font-size: 14px;
+  font-family: "Source Han Sans CN";
+  background-size: 100% 100%;
+}
+.table-ctr .tb-row:nth-of-type(odd) {
+  background-image: url("/static/images/tb-bg1.png");
+}
+
+.table-ctr .tb-row:nth-of-type(even) {
+  background-image: url("/static/images/tb-bg2.png");
+}
+.table-ctr .tb-cell {
+  border-bottom: 0 !important;
+}
+
+.table-ctr .el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: rgba(2, 135, 207, 0.1) !important;
+}
+/*告警= 表格样式  end*/
+/* 告警 下拉框样式 */
+.warn-search .el-date-editor {
+  width: 120px;
+  height: 38px;
+  background-image: url("/static/images/btn3.png");
+  background-size: 100% 100%;
+  margin-right: 20px;
+}
+.warn-search .el-input__inner {
+  background-color: transparent;
+  border: 0;
+  color: #25d9ff;
+  padding: 0;
+  text-align: center;
+}
+.warn-search .el-input__inner::-webkit-input-placeholder{
+  color: #25d9ff;
 }

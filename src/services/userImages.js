@@ -176,5 +176,38 @@ export const userImages = [
           image:"/static/images/bg.png",
         }
       },
+      { 
+        id:uuidv4(),
+        data:{
+          rect: {
+            width: 338,
+            height: 188
+          },
+          name: "image",
+          image:"/static/images/model-bg.png",
+        }
+      },
+      { 
+        id:uuidv4(),
+        data:{
+          rect: {
+            width: 151,
+            height: 77
+          },
+          name: "image",
+          image:"/static/images/line.png",
+        }
+      },
+      { 
+        id:uuidv4(),
+        data:{
+          rect: {
+            width: 32,
+            height: 32
+          },
+          name: "image",
+          image:"/static/images/c.png",
+        }
+      },
     
 ]

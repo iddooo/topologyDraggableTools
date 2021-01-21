@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-      <div :class="['sidebar',{'isCollapse':!sidebar.opened}]">
+      <!-- <div :class="['sidebar',{'isCollapse':!sidebar.opened}]">
           <div class="fold">
                 <i @click="fold" class="el-icon-s-fold"></i>
             </div>
           <sidebar/>
-      </div>
+      </div> -->
       <div class="main">
           <router-view/>
       </div>

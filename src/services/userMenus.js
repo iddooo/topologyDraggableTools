@@ -1,10 +1,3 @@
-import { title } from './components/title'
-import { radio1 } from './components/radio1'
-import { radio2 } from './components/radio2'
-import { text } from './components/text'
-import { button } from './components/button'
-import { linkButton } from './components/linkButton'
-
 export const userMenus= [
     {
         name: "text",
@@ -18,10 +11,16 @@ export const userMenus= [
             name: "text"
         }
     },
-    // title,
-    // radio1,
-    // radio2,
-    // text,
-    // button,
-    // linkButton
+    {
+        name: "triangle",
+        icon: "icon-triangle",
+        data: {
+            text: "三角形",
+            rect: {
+            width: 100,
+            height: 100
+            },
+            name: "triangle"
+        }
+    }
 ]

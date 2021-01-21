@@ -7,7 +7,7 @@
         :userMenus="userMenus"
         :userImages="userImages">
         <div class="operate">
-            <el-button @click="saveComponent" size="small" type="primary" icon="el-icon-upload2">保存组件</el-button>
+            <el-button @click="saveComponent" size="small" type="primary" icon="el-icon-upload2"><span class="f-ds">123</span>保存组件</el-button>
         </div>
       </Tools>
     </div>
@@ -33,12 +33,12 @@
         </div>
       </PageProps>
       <!-- 节点属性面板 -->
-      <CanvasProps
+      <NodeProps
         v-if="props.node"
         :node="props.node"
         :userImages="userImages"
         @change="onUpdateProps">
-      </CanvasProps>
+      </NodeProps>
     </div>
 
     <div
@@ -72,7 +72,7 @@ import { canvasRegister } from "~/services/canvas.js";
 import { Topology, Node } from "@topology/core";
 
 // 2. 导入属性组件
-import CanvasProps from "~/components/CanvasProps";
+import NodeProps from "~/components/NodeProps";
 // 3. 导入右键操作面板
 import CanvasContextMenu from "~/components/CanvasContextMenu";
 // 4. 导入左侧组件列表
@@ -94,7 +94,7 @@ import {
 } from "~/api/zutai";
 
 // 测试数据
-import json from "~/json/node.json";
+import json from "~/json/line.json";
 
 const canvasOptions = {
   rotateCursor: "/img/rotate.cur"
@@ -104,7 +104,7 @@ let canvas;
 export default {
     components: {
         Tools,
-        CanvasProps,
+        NodeProps,
         PageProps,
         CanvasContextMenu
     },
@@ -157,7 +157,6 @@ export default {
         if(this.id){
             getPage(this.id).then(res=>{
                 console.log('res.data :>> ', res.data);
-                console.log('res.data.data :>> ', res.data.data);
                 let pageJson = JSON.parse(res.data.data)
                 canvas.open(pageJson);
                 this.pageData = res.data
@@ -498,7 +497,7 @@ export default {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #020a21;
+    // background-color: #020a21;
     .head {
       height: 40px;
       color: #ffffff;
@@ -518,6 +517,9 @@ export default {
   .context-menu {
     position: fixed;
     z-index: 10;
+  }
+  .f-ds{
+      font-family: 'DS-Digital';
   }
 }
 </style>

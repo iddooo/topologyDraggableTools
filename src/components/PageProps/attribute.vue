@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import imageProps from '../CanvasProps/imageProps'
+import imageProps from '../NodeProps/imageProps'
 import userImages from "../Tools/userImages";
 
 export default {

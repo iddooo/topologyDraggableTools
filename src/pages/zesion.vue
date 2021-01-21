@@ -42,9 +42,11 @@ export default {
             });
         },
         preview(data){
-            window.topologyData = JSON.parse(data.data)
             this.$router.push({
-                path: "/preview"
+                path: "/preview",
+                query:{
+                    id:data.id
+                }
             });
         },
         del(data){
