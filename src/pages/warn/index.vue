@@ -1,17 +1,17 @@
 <template>
   <div class="page">
     <div class="serch-ctr">
-      <warnSearch />
+      <warnSearch :form="form" @search="search" />
     </div>
     <div class="table-ctr">
-      <Table :data="userList" :columns="columns"> </Table>
+      <Table :data="warnList" :columns="columns"></Table>
     </div>
   </div>
 </template>
 
 <script>
-import Table from "~/components/Table/index";
-import warnSearch from "~/components/warnSearch/index";
+import Table from "~/components/TableSearch/Table";
+import warnSearch from "./warnSearch";
 
 const columns = [
   { label: "序号", prop: "index", width: "" },
@@ -29,13 +29,23 @@ export default {
   },
   data() {
     return {
-      userList: [],
-      columns
+      warnList: [],
+      columns,
+      form: {
+        name: undefined,
+        level: undefined,
+        date: undefined,
+        state: undefined
+      }
     };
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+      search(form){
+          console.log('form :>> ', form);
+      }
+  },
   created() {},
   mounted() {}
 };

@@ -1,8 +1,7 @@
 <template>
   <div class="preview">
     <div id="topology-canvas" class="full">
-    <component :is="componentName"></component>
-
+      <component :is="componentName"></component>
     </div>
     <div class="tools">
       <el-button type="primary" @click="onBack">返回</el-button>
@@ -16,7 +15,8 @@ import { Topology } from "@topology/core";
 import screenfull from "screenfull";
 let canvas;
 import { getPage } from "~/api/zutai";
-import warn from "./warn";
+// 预警
+import warn from "./warn/index";
 
 export default {
   name: "Preview",
@@ -32,10 +32,15 @@ export default {
   created() {},
   mounted() {
     canvas = new Topology("topology-canvas", {});
-    console.log("预览中的画布 :>> ", canvas);
-      this.id = this.$route.query.id;
+    this.id = this.$route.query.id;
 
-    this.init()
+    this.init();
+  },
+  watch: {
+    $route(v) {
+      this.id = v.query.id;
+      this.init();
+    }
   },
   methods: {
     onBack() {
@@ -49,6 +54,7 @@ export default {
         getPage(this.id).then(res => {
           let data = JSON.parse(res.data.data);
           data.locked = 1;
+          this.componentName = undefined
 
           // 预警
           if (this.id == 3) {
@@ -63,12 +69,6 @@ export default {
         canvas.open(data);
       }
     }
-  },
-  beforeRouteUpdate(to, from, next) {
-    // 可以访问组件实例 `this`
-    console.log('路由更新了',to, from);
-    this.id = to.query.id
-    this.init()
   }
 };
 </script>

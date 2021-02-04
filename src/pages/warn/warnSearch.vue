@@ -5,24 +5,21 @@
     <el-date-picker v-model="form.date" type="date" placeholder="选择日期" prefix-icon='null' :clearable="false">
     </el-date-picker>
     <BtSelect label="处理状态" v-model="form.state" :options="stateOptions" />
-    <div class="searchbt">查询</div>
+    <div class="searchbt" @click="search">查询</div>
   </div>
 </template>
 
 <script>
-import BtSelect from "./BtSelect";
+import BtSelect from "~/components/TableSearch/BtSelect";
 
 export default {
   name: "",
   components: {
     BtSelect
   },
+  props:['form'],
   data() {
     return {
-      form: {
-        name: undefined,
-        level: undefined
-      },
       deviceOptions: [
         {
           label: "设备名称",
@@ -47,29 +44,39 @@ export default {
           value: undefined
         },
         {
-          label: "2",
-          value: "2"
+          label: "一级告警",
+          value: 1
         },
         {
-          label: "1",
-          value: "1"
-        },
-        {
-          label: "3",
-          value: "4"
+          label: "严重告警",
+          value: 2
         }
       ],
       stateOptions: [
         {
           label: "处理状态",
           value: undefined
+        },
+        {
+          label: "未处理",
+          value: 0
+        },
+        {
+          label: "已处理",
+          value: 1
         }
+
+
       ]
     };
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+      search(){
+          this.$emit('search',this.form)
+      }
+  },
   created() {},
   mounted() {}
 };

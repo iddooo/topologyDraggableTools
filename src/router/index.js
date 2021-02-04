@@ -38,7 +38,7 @@ export const zesionRouter = [
     path: "/warn",
     name: "warn",
     hidden: true,
-    component: () => import("~/pages/warn.vue"),
+    component: () => import("~/pages/warn/index"),
     meta: { title: "预警", icon: "" }
   },
   {

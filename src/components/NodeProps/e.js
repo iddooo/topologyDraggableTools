@@ -130,9 +130,9 @@ export const fns = {
     window.topology.updateProps(false, pens);
   },
   // 路由跳转
-  link(pen, params) {
-    console.log("路由跳转", pen, params);
-  },
+//   link(pen, params) {
+//     console.log("路由跳转", pen, params);
+//   },
   animate(pen,params){
     topology.data.pens.forEach((e)=>{
         console.log(e)
